@@ -59,11 +59,11 @@ static void run(char *c, int t)
         if (!is_special(*c)) {
             // move back to null termination
             c++;    /* Copy word of regular chars into previous u */
-            //XXXXX /* 在此提交你的程式碼 */
+            /* 在此提交你的程式碼 */
             *c = '\0';
             c--;
             u--;
-            while(!is_blank(*c) && !is_delim(*c)){
+            while(!is_special(*c)){
                 c--;
             }
             *u = (c+1);
