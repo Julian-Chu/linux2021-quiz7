@@ -104,7 +104,8 @@ static bool execute_client_callback(bus_client_t *client, void *msg)
          */
 
         /* 提交你的實作 */ ;
-        if(CAS(&client->refcnt, &new_client.refcnt, &local_client.refcnt)){
+        if(CAS(&client->refcnt, &local_client.refcnt, &new_client.refcnt)){
+            client->callback(client->ctx, msg);
             return true;
         }
         __atomic_load(&client->refcnt, &local_client.refcnt, __ATOMIC_SEQ_CST);
