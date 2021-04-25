@@ -1,2 +1,2 @@
 all:
-	 gcc -Wall -Wextra -o httpd httpd.c -lpthread
+	 gcc -Wall -Wextra -o httpd httpd.c -lpthread -g
